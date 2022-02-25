@@ -1,0 +1,75 @@
+.canvas {
+    padding: 40px;
+    font-size: 20px;
+}
+
+.message {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 30vh;
+}
+
+.message p {
+    width: 30%;
+    text-align: center;
+    font-size: 30px;
+}
+
+.input-container {
+    border: 1px solid black;
+    display: inline-block;
+    padding: 5px 10px 5px 10px;
+    text-align: center;
+    display: table;
+    margin: auto;
+    border-radius: 0.5rem;
+}
+
+.num-input {
+    border: none;
+    border-bottom: 1px solid black;
+    width: 10rem;
+    text-align: center;
+}
+
+.btn {
+    border: 2px solid black;
+    transition-duration: 0.1s;
+}
+
+.btn:hover {
+    background-color: #614FCC;
+    color: white
+}
+
+.btn:hover .fa {
+    color: white
+}
+
+/* maybe find a better way instead of forcing absolute positioning*/
+.info {
+    position: absolute;
+    display: inline-block;
+    right: 50px;
+    width: 5em;
+}
+
+.controls .btn {
+    margin: 10px;
+}
+
+.btn .fa {
+    margin-left: 0.5rem;
+    color: #614FCC;
+    transition-duration: 0.1s;
+}
+
+
+
+/* to remove spinners from number input box */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

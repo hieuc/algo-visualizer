@@ -1,14 +1,10 @@
 .logo {
-    width: 100px;
-    margin: 5px 0 5px 20px;
-}
-
-.bg-blue {
-    background-color:lightblue;
+    height: 5rem;
+    margin: 3px 0 3px 20px;
 }
 
 .bg-purple {
-    background-color: #614FCC;
+    background-color: var(--purple);
 }
 
 .navbar {
@@ -17,37 +13,36 @@
     padding: 0;
 }
 
-.dropdown {
-    margin: 0 10px 0 10px;
-}
-
 .nav-link {
     color:white;
-    height: 100%;
-}
-
-.nav-link:hover, .nav-link:focus {
-    color:black;
-}
-
-.nav-item:hover {
-    background-color: #ddd7ec;
+    height: auto;
+    padding: 1.5rem 2rem;
 }
 
 .dropdown-menu {
-    background-color: #ddd7ec;
+    background-color: var(--light-purple);
     font-size: 20px;
     padding: 5px;
     border-radius: 0.5rem;
-    margin-top:0.5rem !important;
+    margin-top: 1rem !important;
 }
 
 .dropdown-item {
-    padding: 8px 20px 8px 20px;
+    padding: 8px 30px;
     border-radius: 0.5rem;
+}
+
+
+.nav-link:hover {
+    color: var(--gold);
+}
+
+.nav-link:focus {
+    background-color: var(--light-purple);
+    color: black;
 }
 
 .dropdown-item:hover {
     color: white;
-    background-color: #614FCC;
+    background-color: var(--purple);
 }

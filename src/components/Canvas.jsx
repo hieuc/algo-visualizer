@@ -3,7 +3,7 @@ import 'bootstrap/dist/css/bootstrap.css'
 import './Canvas.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 
-class Canvas extends React.Component {
+class Content extends React.Component {
     render() {
         return (
             <div className="canvas">
@@ -46,4 +46,4 @@ class Canvas extends React.Component {
     }
 }
 
-export default Canvas;
+export default Content;

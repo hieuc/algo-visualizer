@@ -39,7 +39,7 @@
 }
 
 .btn:hover {
-    background-color: #614FCC;
+    background-color: var(--purple);
     color: white
 }
 
@@ -61,11 +61,9 @@
 
 .btn .fa {
     margin-left: 0.5rem;
-    color: #614FCC;
+    color: var(--purple);
     transition-duration: 0.1s;
 }
-
-
 
 /* to remove spinners from number input box */
 input::-webkit-outer-spin-button,

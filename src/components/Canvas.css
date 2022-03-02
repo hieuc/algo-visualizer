@@ -1,13 +1,62 @@
-.canvas {
+.content {
     padding: 40px;
     font-size: 20px;
 }
 
+.highlight {
+    background-color: #FCF5B9;
+}
+
+.board {
+    border: 1px solid black;
+    display: flex;
+    margin: auto;
+}
+
+.table-container {
+    display: flex;
+    margin: auto;
+    width: 1000px;
+    height: 400px;
+}
+
+.elements {
+    table-layout: fixed;
+    margin: auto;
+    border-collapse: separate;
+    border-spacing: 15px 0;
+}
+
+.elements td {
+    width: 3.5rem;
+    height: 3.5rem;
+    text-align: center;
+}
+
+.value-row {
+    font-size: 24px;
+}
+
+.index-row {
+    font-size: 18px;
+}
+
+.value-block {
+    border: 2px solid black;
+    box-shadow: 2px 3px 3px #969696;
+}
+
+.hidden {
+    display: none;
+}
+
 .message {
+    position: absolute;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 30vh;
+    width: 97%;
 }
 
 .message p {
@@ -28,7 +77,6 @@
 
 .num-input {
     border: none;
-    border-bottom: 1px solid black;
     width: 10rem;
     text-align: center;
 }
@@ -53,6 +101,7 @@
     display: inline-block;
     right: 50px;
     width: 5em;
+    z-index: 2;
 }
 
 .controls .btn {

@@ -5,20 +5,16 @@ import Canvas from "./components/Canvas"
 
 // for icons
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlay, faForward, faBackward, faRotateLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faForwardStep, faBackwardStep, faRotateLeft } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faPlay, faForward, faBackward, faRotateLeft)
+library.add(faPlay, faForwardStep, faBackwardStep, faRotateLeft)
 
 class App extends React.Component {
-  handleHide() {
-    
-  }
-
   render() {
     return (
       <React.Fragment>
         <NavBar />
-        <Canvas />
+        <Canvas width={1000} height={500}/>
       </React.Fragment>
     );
   }

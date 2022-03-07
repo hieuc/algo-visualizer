@@ -7,6 +7,12 @@
     background-color: #FCF5B9;
 }
 
+.centered {
+    display: block;
+    text-align: center;
+    margin-top: 10px;
+}
+
 .board {
     border: 1px solid black;
     display: flex;

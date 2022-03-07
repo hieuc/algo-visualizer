@@ -5,9 +5,9 @@ import Canvas from "./components/Canvas"
 
 // for icons
 import { library } from '@fortawesome/fontawesome-svg-core'
-import { faPlay, faForwardStep, faBackwardStep, faRotateLeft } from '@fortawesome/free-solid-svg-icons'
+import { faPlay, faForwardStep, faBackwardStep, faRotateLeft, faPause, faWrench } from '@fortawesome/free-solid-svg-icons'
 
-library.add(faPlay, faForwardStep, faBackwardStep, faRotateLeft)
+library.add(faPlay, faForwardStep, faBackwardStep, faRotateLeft, faPause, faWrench)
 
 class App extends React.Component {
   render() {

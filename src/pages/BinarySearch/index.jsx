@@ -1,23 +1,19 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
-import './Canvas.css'
-import '../algorithms/searches.js'
+import './BinarySearch.css'
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
-import { binarySearch, linearSearch } from '../algorithms/searches.js'
+import {binarySearch} from '../../algorithms/searches.js'
 
-class Canvas extends React.Component {
+class BinarySearch extends React.Component {
     constructor(props) {
         super(props);
         this.boardRef = React.createRef();
         this.inputRef = React.createRef();
-        this.algorMap = { "linear": linearSearch, "binary" : binarySearch };
         this.playTimer = undefined;
         this.state = {
             width: props.width,
             height: props.height,
             array: [],
-            hideWelcomeMessage: true,
-            currentAlg: "binary",
             algorSteps: { steps: [], success: false},
             currentStep: 0,
             playSpeed: 3,
@@ -36,10 +32,6 @@ class Canvas extends React.Component {
         }
     }
 
-    clearWelcomeMessage = () => {
-        this.setState({ hideWelcomeMessage : !this.state.hideWelcomeMessage});
-    }
-
     stepForward = () => {
         this.setState({ currentStep : Math.min(this.state.currentStep+1, this.state.algorSteps.steps.length) });
         this.doPause();
@@ -51,14 +43,24 @@ class Canvas extends React.Component {
     }
 
     drawBlocks = () => {
+        var currentHighlightId = this.state.algorSteps.steps[this.state.currentStep-1];
         return this.state.array.map(
-            v => <td className={"value-block" + (v.id === this.state.algorSteps.steps[this.state.currentStep-1] ? " highlight" : "")} 
-                key={v.id} id={v.id}>{v.value}</td>)
+            v => {
+                var style = '';
+                if (currentHighlightId === v.id) {
+                    style = ' highlight';
+                } else if (v.id === this.state.algorSteps.steps[this.state.currentStep-2] 
+                    && currentHighlightId === -1) {
+                    style = this.state.algorSteps.success ? ' highlight-found' : ' highlight-error';
+                }
+                
+                return <td className={"value-block" + style} key={v.id} id={v.id}>{v.value}</td>
+            })
     }
 
     doAlgorithm = () => {
         var input = parseInt(this.inputRef.current.value);
-        var algorithm = this.algorMap[this.state.currentAlg];
+        var algorithm = binarySearch;
         var array = this.state.array.map((o)=> o.value);
         
         this.setState( { algorSteps: algorithm(array, input), currentStep: 0 });
@@ -102,7 +104,7 @@ class Canvas extends React.Component {
         return (
             <div className="content">
                 <div className="info">
-                    <button className="btn" onClick={this.clearWelcomeMessage}>Extra Info right here</button>
+                    <button className="btn">Extra Info right here</button>
                 </div>
                 
                 {/*
@@ -110,7 +112,7 @@ class Canvas extends React.Component {
                     USE SVG FOR MORE ADVANCED ANIMATIONS IN THE FUTURE
                 </svg>
                 */}
-                <div className={this.state.hideWelcomeMessage ? 'table-container' : 'hidden'}>
+                <div className='table-container'>
                     <table ref={this.boardRef} className="elements">
                             <tbody>
                                 <tr className="value-row">
@@ -125,11 +127,11 @@ class Canvas extends React.Component {
                     </table>
                 </div>
 
-                <div className={this.state.hideWelcomeMessage ? 'input-container' : 'hidden'}>
+                <div className='input-container'>
                     <input ref={this.inputRef} className="num-input" type="number" placeholder="Search for" defaultValue={this.state.array[6].value}></input>
                 </div>
 
-                <div className={this.state.hideWelcomeMessage ? 'centered' : 'hidden'}>
+                <div className='centered'>
                     <span >
                         Current step: <b>{this.state.currentStep}</b>/
                         {this.state.algorSteps.steps.length ? this.state.algorSteps.steps.length : 0}
@@ -140,7 +142,7 @@ class Canvas extends React.Component {
                     </div>
                 </div>
 
-                <div className={this.state.hideWelcomeMessage ? 'controls' : 'hidden'}>
+                <div className='controls'>
                     <button className="btn" title="do algorithm" onClick={this.doAlgorithm}>
                         <span>Build</span>
                         <FontAwesomeIcon icon="fa-wrench" className="fa"/>                
@@ -174,4 +176,4 @@ class Canvas extends React.Component {
     }
 }
 
-export default Canvas;
+export default BinarySearch;

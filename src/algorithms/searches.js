@@ -29,6 +29,7 @@ export function linearSearch(arr, target) {
             break;
         }
     }
+    r.steps.push(-1); // mark the final step for highlight and stuff
     return r;
 }
 
@@ -55,5 +56,6 @@ export function binarySearch(arr, target) {
             r = m-1;
         }
     }
+    result.steps.push(-1);
     return result;
 }

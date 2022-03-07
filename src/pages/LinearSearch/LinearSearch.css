@@ -7,6 +7,14 @@
     background-color: #FCF5B9;
 }
 
+.highlight-found {
+    background-color: #96FA9A;
+}
+
+.highlight-error {
+    background-color: #FF9A94;
+}
+
 .centered {
     display: block;
     text-align: center;
